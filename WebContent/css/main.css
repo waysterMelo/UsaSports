@@ -1,0 +1,10 @@
+.colunas{	
+	width: 100px;
+	border-radius: 50%;
+	background-color: white;
+	margin: 5px;
+}
+
+.colunas img{
+	margin-top: 8px;
+}
