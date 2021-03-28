@@ -1,12 +1,8 @@
 package com.usa.dao;
 
-import javax.persistence.Persistence;
-import javax.persistence.Query;
-
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 public class JpaDao<E> {
 
@@ -19,15 +15,14 @@ public class JpaDao<E> {
 	
 	public E create(E entity) {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
-		entityManager.getTransaction().begin(); 
+		entityManager.getTransaction().begin();
 		entityManager.persist(entity);
-		entityManager.flush(); 
-		entityManager.refresh(entity); 
+		entityManager.flush();
+		entityManager.refresh(entity);
 		entityManager.getTransaction().commit();
-		entityManager.close(); 
+		entityManager.close();
 		return entity;
 	}
-	
 	
 	
 	
