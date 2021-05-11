@@ -1,15 +1,21 @@
 package usasports.com.entity;
 // Generated Mar 27, 2021, 3:22:00 PM by Hibernate Tools 5.2.12.Final
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "favorite_leagues", catalog = "fanatics")
+@NamedQueries({
+	@NamedQuery(name = "FavoriteLeagues.listAll", query = "select fl from FavoriteLeagues fl") 
+})
 public class FavoriteLeagues implements java.io.Serializable {
 
 	private Integer id;
