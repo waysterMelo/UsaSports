@@ -3,6 +3,8 @@ package usasports.com.entity;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+import java.util.Base64;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "favorite_leagues", catalog = "fanatics")
@@ -21,6 +24,9 @@ public class FavoriteLeagues implements java.io.Serializable {
 	private Integer id;
 	private String league;
 	private byte[] image;
+	public String base64Image;
+
+	
 
 	public FavoriteLeagues() {
 	}
@@ -62,6 +68,17 @@ public class FavoriteLeagues implements java.io.Serializable {
 
 	public void setImage(byte[] image) {
 		this.image = image;
+	} 
+	
+	@Transient
+	public String getBase64Image() {
+		this.base64Image = Base64.getEncoder().encodeToString(this.image);
+		return this.base64Image;
+	}
+
+	@Transient
+	public void setBase64Image(String base64Image) {
+		this.base64Image = base64Image;
 	}
 
 }

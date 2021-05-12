@@ -24,8 +24,7 @@ public class AdminDao  extends JpaDao<FavoriteLeagues> implements GenericDao<Fav
 
 	@Override
 	public Object get(Object id) {
-		
-		return null;
+		return super.find(FavoriteLeagues.class, id);
 	}
 
 	@Override

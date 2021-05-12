@@ -26,44 +26,35 @@
 		<h1 class="text-primary ">Manage Top Sports List <c:out value="" /></h1> <span><a href="logout">logout</a></span>
 		<p>wayster h c de melo
 	</div>
-	<c:if test="${message != null}">
-	<div class="row justify-content-center">
-	<h1 align="center" class="alert alert-success">${message}</h1>
-	</div>
-	</c:if>
 	<div class="container">
 		<div class="col-lg-12">
-		<div class="row">
-			<div class="row">
-			<a class="btn btn-info my-4" href="saveFL">Add new sport</a>
+		<div class="row justify-content-center">
+			<div class="alert alert-info">
+			<h1 class="lead ">Add new sport</h1>
 			</div>
-			<table class="table">
-				<thead class="thead-dark">
-					<tr>
-					<th scope="col">#</th>
-					<th scope="col">name</th>
-					<th scope="col">image</th>
-					<th>actions</th>
-					</tr>
-				</thead>
-				<tbody>
-				<c:forEach var="sport" varStatus="status" items="${listaAll}">
-					<tr>
-					<td>${status.index + 1}</td>
-					<td>${sport.league}</td>
-					<td><img alt="image" src="data:image/jpg;base64,${sport.base64Image}" class="w-25"></td>
-					
-					<td>
-					<a href="" class="text-light btn btn-dark btn-md">Edit</a>
-					<a href="" class="text-light btn btn-danger btn-md">Remove</a>
-					</td>
-					
-					
-					</tr>
-				</c:forEach>
-				</tbody>
-			</table>		
-		</div>
+			</div><!-- row -->
+			<div class="row justify-content-center">
+				<form action="saveFL" method="post"  enctype="multipart/form-data">
+			
+				<div class="form-group">
+					<label id="name">League</label>
+					<input id="name" placeholder="type name's league here..." class="form-control" name="league" type="text"/>
+				</div>
+				
+				
+				
+				<div class="form-group">
+					<label id="file">Image</label>
+					<input  type="file" id="file" name="image" class="form-control"/>
+				</div>
+				
+				
+				<div class="form-group">
+					<button class="form-control btn btn-success">Save</button>
+				</div>
+				
+			</form>
+			</div>
 		</div>
 	</div>
 
