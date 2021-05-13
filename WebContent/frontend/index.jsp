@@ -22,31 +22,13 @@
 				<h4 class=" my-4">Shop Your Favorite League</h4>
 		</div>
 		
+		<c:forEach varStatus="status" var="fl" items="${listaAll}">
 		<div class="colunas">
-			<img alt="" src="images/nfl.svg" class="">
+			<img alt="" src="data:image/jpg;base64,${fl.base64Image}" class="w-50"> <br>
+			<p class="font-weight-bolder">${fl.league}</p>
 		</div>
+		</c:forEach>
 		
-		<div class="colunas">
-			<img alt="" src="images/nfl.svg" class="">
-		</div>
-		
-		<div class="colunas">
-			<img alt="" src="images/nfl.svg" class=""> <br/>
-		</div>
-		
-		<div class="colunas">
-			<img alt="" src="images/nfl.svg" class=""> <br/>
-		</div>
-		
-		<div class="colunas">
-			<img alt="" src="images/nfl.svg" class=""> <br/>
-			
-		</div>
-		
-		<div class="colunas">
-			<img alt="" src="images/nfl.svg" class=""> <br/>
-			
-		</div>
 	</div>
 </div>
 

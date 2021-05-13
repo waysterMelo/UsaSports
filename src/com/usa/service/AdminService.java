@@ -39,15 +39,25 @@ public class AdminService {
 		 dispatcher.forward(request, response); 
 	}
 	
+	public void listFavoriteSportsHome() throws ServletException, IOException {
+		List<FavoriteLeagues> lista = adminDao.listAll();
+		request.setAttribute("listaAll", lista);
+		
+		String path = "frontend/index.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+		 dispatcher.forward(request, response); 
+	}
+	
 	
 	public void listFormAddFL() throws ServletException, IOException {
 		String path = "addFL.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response); 
 	}
-
 	
-	public void readFiles(FavoriteLeagues fl) throws IOException, ServletException {
+	public void saveFl() throws IOException, ServletException {
+		FavoriteLeagues fl = new FavoriteLeagues();
+	
 		String league = request.getParameter("league");
 		fl.setLeague(league); 
 		
@@ -62,22 +72,19 @@ public class AdminService {
 			fl.setImage(img); 
 			
 		}
+			
+		FavoriteLeagues saveEntity  = adminDao.create(fl);
+		if (saveEntity.getId() > 0) {
+			 String msg = "A sport was successfully saved";
+			 listFavoriteSports(msg); 
+		}
+		
 	}
 
-	public void saveFl() throws IOException, ServletException {
-		FavoriteLeagues fl = new FavoriteLeagues();
-		readFiles(fl);
 	
-		String name = request.getParameter("league");
-		String img = request.getParameter("image");
-		
-		System.out.println(name + " a imagem é : " + img);
-		
-//		FavoriteLeagues saveEntity  = adminDao.create(fl);
-//		if (saveEntity.getId() > 0) {
-//			 String msg = "A sport was successfully saved";
-//			 listFavoriteSports(msg); 
-//		}
+	public void readFiles(FavoriteLeagues fl) throws IOException, ServletException {
 		
 	}
+
+
 }

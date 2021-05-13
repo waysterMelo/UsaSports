@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.usa.service.AdminService;
+
 
 @WebServlet("")
 public class Home extends HttpServlet {
@@ -23,9 +25,8 @@ public class Home extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String path = "/frontend/index.jsp";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
-		dispatcher.forward(request, response); 
+		AdminService adminService = new AdminService(request, response);
+		adminService.listFavoriteSportsHome();
 	}
 
 	

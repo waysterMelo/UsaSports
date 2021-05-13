@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>UsaSports Administration</title>
+<title>Usa Sports Administration</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link
@@ -51,7 +51,7 @@
 					<tr>
 					<td>${status.index + 1}</td>
 					<td>${sport.league}</td>
-					<td><img alt="image" src="data:image/jpg;base64,${sport.base64Image}" class="w-25"></td>
+					<td><img alt="image" src="data:image/jpg;base64,${sport.base64Image}" style="width: 50px"></td>
 					
 					<td>
 					<a href="" class="text-light btn btn-dark btn-md">Edit</a>

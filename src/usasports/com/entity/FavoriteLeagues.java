@@ -21,6 +21,8 @@ import javax.persistence.Transient;
 })
 public class FavoriteLeagues implements java.io.Serializable {
 
+	
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String league;
 	private byte[] image;
@@ -31,9 +33,6 @@ public class FavoriteLeagues implements java.io.Serializable {
 	public FavoriteLeagues() {
 	}
 
-	public FavoriteLeagues(String league) {
-		this.league = league;
-	}
 
 	public FavoriteLeagues(String league, byte[] image) {
 		this.league = league;

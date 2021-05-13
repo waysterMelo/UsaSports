@@ -52,7 +52,7 @@
 	<div class="navbar navbar-expand navbar-light">
 	
 		<div class="container-fluid">
-			<a class="navbar-brand">
+			<a class="navbar-brand" href="${pageContext.request.contextPath}">
 				<img alt="logo" src="images/logo.svg" class="w-75">
 			</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
