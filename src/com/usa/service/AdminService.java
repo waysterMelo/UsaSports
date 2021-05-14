@@ -82,7 +82,32 @@ public class AdminService {
 	}
 
 	
-	public void readFiles(FavoriteLeagues fl) throws IOException, ServletException {
+	public void UpdateFl() throws ServletException, IOException {
+		Integer id  = Integer.parseInt(request.getParameter("id"));
+		String league  = request.getParameter("league");
+		
+		AdminDao adminDao = new AdminDao();
+		FavoriteLeagues fl =  adminDao.get(id);
+		
+		request.setAttribute("leagues", fl);
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("edit_fl.jsp");
+		dispatcher.forward(request, response); 
+	}
+	
+	public void saveFlEdit() throws IOException, ServletException {
+		FavoriteLeagues fl = new FavoriteLeagues();
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		String league = request.getParameter("league");
+		
+		//buscar id 
+		fl = adminDao.get(id);
+		fl.setLeague(league); 
+		
+		adminDao.update(fl);
+		String msg = "The name of this sport was successfully updated";
+		listFavoriteSports(msg); 
 		
 	}
 

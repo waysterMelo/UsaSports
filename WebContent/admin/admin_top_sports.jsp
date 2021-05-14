@@ -54,7 +54,7 @@
 					<td><img alt="image" src="data:image/jpg;base64,${sport.base64Image}" style="width: 50px"></td>
 					
 					<td>
-					<a href="" class="text-light btn btn-dark btn-md">Edit</a>
+					<a href="edit_fl?id=${sport.id}" class="text-light btn btn-dark btn-md">Edit</a>
 					<a href="" class="text-light btn btn-danger btn-md">Remove</a>
 					</td>
 					
